@@ -36,8 +36,10 @@ together so they stay in sync.
 Some content is deliberately in one version only:
 
 - **English only:** the FAQ cards "What time should I arrive at the
-  church?", "What is the dress code?" and "Can I bring a guest?", and the
-  UK (GBP) bank account.
+  church?", "What is the dress code?" and "Can I bring a guest?", the
+  whole "On the Day" section (expandable stages: Mass, Cocktail, Banquet,
+  First Dance, Party), the note under the RSVP deadline, and the UK (GBP)
+  bank account.
 - **Spanish only:** the Spanish (EUR) bank account.
 
 To make something show in both versions, add a matching block with the
@@ -81,7 +83,7 @@ own — ask Claude to regenerate `daffodil-br.png`.
 Search the files for `EDIT` to find every spot that needs real content —
 in both languages:
 
-- **Travel & Hotels modal** — hotel name/link suggestions.
+- **Dress Code modal** — headpiece shop name + link.
 - **Gifts section**: both bank-detail cards are empty placeholders. The
   English version shows the UK account (name, sort code, account number,
   optional IBAN); the Spanish version shows the EUR account (titular, IBAN,

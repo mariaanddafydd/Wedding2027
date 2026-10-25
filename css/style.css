@@ -14,6 +14,7 @@
   --chip: rgba(0, 0, 0, .035);  /* faint tint for boxes */
   --taupe: #9e948a;             /* borders */
   --taupe-light: #f1e6dc;       /* button background */
+  --navy: #1b2a5c;              /* RSVP scroll note */
   --max-width: 1100px;
 }
 
@@ -350,6 +351,20 @@ a {
   border-radius: 1rem;
 }
 
+/* Crops in on the couple: the photo is scaled up inside a clipped frame
+   (transform-origin keeps them in view). Raise the scale to zoom further. */
+.welcome-photo {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 1rem;
+}
+
+.welcome-photo img {
+  transform: scale(1.4);
+  transform-origin: 52% 100%;
+  border-radius: 0;
+}
+
 .welcome-detail + .welcome-detail {
   margin-top: 2rem;
 }
@@ -423,6 +438,150 @@ a {
   padding: .3rem .9rem;
   border-radius: .5rem;
   font-size: .95rem;
+}
+
+/* ---------- On the Day (expandable stages) ---------- */
+
+.day-intro {
+  text-align: center;
+  margin: -1.5rem 0 2.5rem;
+}
+
+.day-stages {
+  max-width: 44rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+}
+
+.day-stage {
+  border: 1px solid var(--line);
+  border-radius: .8rem;
+  background-color: var(--ivory);
+}
+
+.day-stage summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.3rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.day-stage summary::-webkit-details-marker {
+  display: none;
+}
+
+.day-stage summary::after {
+  content: '+';
+  flex-shrink: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--muted);
+}
+
+.day-stage[open] summary::after {
+  content: '\2212';
+}
+
+.day-stage summary:hover {
+  background-color: var(--chip);
+  border-radius: .8rem;
+}
+
+.day-stage__title {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  font-weight: 600;
+  color: var(--main);
+}
+
+.day-stage__meta {
+  font-size: .95rem;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.day-stage__body {
+  padding: 0 1.3rem 1.3rem;
+  border-top: 1px solid var(--line);
+}
+
+.day-stage__body p,
+.day-stage__body li {
+  font-size: 1.05rem;
+}
+
+.day-stage__body ul,
+.day-stage__body ol {
+  padding-left: 1.3rem;
+}
+
+.day-video {
+  display: block;
+  width: 100%;
+  max-width: 24rem;
+  margin: .8rem auto 0;
+  border-radius: .6rem;
+}
+
+.heckle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1rem;
+  border: 1px solid var(--line);
+  border-radius: .8rem;
+  background-color: var(--chip);
+}
+
+.heckle__col {
+  padding: 1rem;
+  text-align: center;
+}
+
+.heckle__col + .heckle__col {
+  border-left: 1px solid var(--taupe);
+}
+
+.heckle__col svg {
+  border-radius: .25rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+
+.heckle__pair {
+  margin-top: 1rem;
+}
+
+.heckle__label {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  color: var(--muted);
+}
+
+.heckle__line {
+  font-size: 1.05rem;
+  line-height: 1.35;
+  font-style: italic;
+  color: var(--main);
+}
+
+.heckle__note {
+  margin: .2rem 0 .35rem;
+  font-size: .85rem;
+  line-height: 1.3;
+  color: var(--muted);
+}
+
+.heckle__label + .heckle__line {
+  margin-bottom: .35rem;
+}
+
+.day-stage__body li + li {
+  margin-top: .5rem;
 }
 
 /* ---------- FAQ ---------- */
@@ -505,6 +664,14 @@ a {
   text-align: center;
   margin: -1.5rem 0 2rem;
   font-size: 1.15rem;
+}
+
+.rsvp-scroll-note {
+  text-align: center;
+  margin: -1rem 0 2rem;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--navy);
 }
 
 .rsvp-note {
