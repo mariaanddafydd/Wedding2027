@@ -354,15 +354,37 @@ a {
 /* Crops in on the couple: the photo is scaled up inside a clipped frame
    (transform-origin keeps them in view). Raise the scale to zoom further. */
 .welcome-photo {
-  aspect-ratio: 4 / 3;
+  /* aspect-ratio: 4 / 3; */
+  /* Photo is 3:4 portrait. Trims the top 1/5 and 1/11 off each side, no zoom:
+     frame is (9/11 wide) x (4/5 tall) of the photo; the image is 11/9 of the
+     frame width, bottom-aligned and shifted left by half the extra width. */
+  aspect-ratio: 135 / 176;
+  display: flex;
+  align-items: flex-end;
   overflow: hidden;
   border-radius: 1rem;
 }
 
 .welcome-photo img {
-  transform: scale(1.4);
-  transform-origin: 52% 100%;
+  /* transform: scale(1.4);
+  transform-origin: 52% 100%; */
+  flex: none;
+  width: calc(100% * 11 / 9);
+  max-width: none;
+  height: auto;
+  max-height: none;
+  margin-left: calc(-100% / 9);
   border-radius: 0;
+}
+
+/* Small gap between each title and its details. */
+.welcome-detail h3 {
+  margin-bottom: 0.6rem;
+}
+
+/* Empty <div></div> acts as a small spacer between address and time. */
+.welcome-detail > div:empty {
+  height: 0.6rem;
 }
 
 .welcome-detail + .welcome-detail {
